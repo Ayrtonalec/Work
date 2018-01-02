@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var pdfjsLib = require('pdfjs-dist');
 var fs = require('fs');
+var parser = require('./core/parser');
 
 app.get('/', function(req, res) {
   var rawData = new Uint8Array(fs.readFileSync('./helloworld.pdf'));
@@ -9,7 +10,7 @@ app.get('/', function(req, res) {
   pdfjsLib.getDocument(rawData).then(function(pdfDocument) {
     pdfDocument.getPage(1).then(function(page) {
       return page.getOperatorList().then(function (opList) {
-        res.send({opList: opList});
+        res.send({opList: parser.convertOpList(opList)});
       });
     });
   }).catch(function(reason) {
