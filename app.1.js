@@ -203,9 +203,9 @@ app.get('/', function(req, res) {
           }
     
 
-console.log('----=----TOP--==-------');
-          console.log(Content_array);
-        console.log('----=----END--==-------');
+// console.log('----=----TOP--==-------');
+//           console.log(Content_array);
+//         console.log('----=----END--==-------');
       //     console.log('--==-==--=---=-=-=--=-=-=--=-=----=-=-=_+_+--==-=-__+-=-=-=-_-_+=-=_+_+-=-=_+-==-==-__+');
       // console.log(Content_array);
           Content_array.pages = Array();
@@ -288,11 +288,11 @@ console.log('----=----TOP--==-------');
 // Math.round(Math.asin(data.transform[1]) * (180/Math.PI))
 
           // content.push(Content_array[u]);
-          console.log("26 loop :      " + Content_array.length);
-          console.log("18 loop :      " + Content_array[u].length);
-          console.log();
+          // console.log("26 loop :      " + Content_array.length);
+          // console.log("18 loop :      " + Content_array[u].length);
+          // console.log();
           for (var z = 0; z < Content_array[u].length; z++) { // 18 loop
-            console.log(" # " + z + "   :      " + Content_array[u][z].length);
+            // console.log(" # " + z + "   :      " + Content_array[u][z].length);
 
 
             if (typeof Content_array[u][z].length !== 'undefined') {
@@ -317,9 +317,8 @@ console.log('----=----TOP--==-------');
 
 
 
-
-
-          console.log('pagenumber = x =   #' + x);
+   var y = '';
+          // console.log('pagenumber = x =   #' + x);
 
           // console.log(Content_array[x]);
           // console.log('Content: ');
@@ -339,9 +338,9 @@ console.log('----=----TOP--==-------');
 
 
             try {
-
+             
               // console.log(data)
-              console.log('elementnumber = i =   #' + i);
+              // console.log('elementnumber = i =   #' + i);
               //   // console.log('element_page = ' + Content_array[0][i].page);
                 // console.log(data)
               // console.log(Content_array[0][i]);
@@ -350,7 +349,7 @@ console.log('----=----TOP--==-------');
             
 
               if (data.page == x) {
-                console.log('elementnumber = i =   #' + i);
+                // console.log('elementnumber = i =   #' + i);
                 // console.log(data)
 
 
@@ -377,8 +376,8 @@ console.log('----=----TOP--==-------');
                   temp_formatted.elements.settings = {};
                   temp_formatted.elements.settings.text = data.str;
                   temp_formatted.elements.settings.fontFamily = data.fontName;
-                  console.log('text :    ' + data.str);
-                  console.log('graden : ' + Math.round(data.transform[1]) * (180/Math.PI) / 10 + '°');
+                  // console.log('text :    ' + data.str);
+                  // console.log('graden : ' + Math.round(data.transform[1]) * (180/Math.PI) / 10 + '°');
                   
                   
                   
@@ -429,22 +428,77 @@ console.log('----=----TOP--==-------');
    temp_formatted.elements.type = 'path';
                   temp_formatted.elements.x = data[1];
                   temp_formatted.elements.y = data[2];
-                  temp_formatted.elements.a //Rotation variable (still to be calculated how many degrees it's turned)
-                  temp_formatted.elements.z = name //z-index (++ variable)
-                  temp_formatted.elements.settings = data;
+                  temp_formatted.elements.a; //Rotation variable (still to be calculated how many degrees it's turned)
+                  temp_formatted.elements.z = name; //z-index (++ variable)
+                  temp_formatted.elements.settings = {};
+                  var new_path = new Array(); //new
+                  var temp_string = '';
                
+                  for(var o=0; o < data.length; o++){
+                    
+                    
+                    if(isNaN(data[o])){
+                      //if text
+                      if(temp_string.substr(temp_string.length - 1) == ','){
+                        temp_string = temp_string.slice(0, -1);
+                      }
+                       temp_string = temp_string + data[o];
+                       
+                       
+                       
+                      // new_path.push(data[o]);
+                    }else{
+                      
+                      if( isNaN(temp_string.substr(temp_string.length - 1)) ){ //? 
+                      // console.log('temp str last character :     ' + temp_string.substr(temp_string.length - 1));
+                      // console.log('data:     ' + data[o]);
+                        //letter
+                          temp_string = temp_string + data[o];
+                          
+                            temp_string = temp_string + ','; 
+                      }else{
+                        
+                        // temp_string = '';
+                        //number
+                      }
+                      
+        
+                    }
+                  }//foreach DATA (path)
+                   
+                     new_path.push(temp_string);
+                      
+                    
+                  temp_formatted.elements.settings.path = new_path;
+               
+                      if(y == temp_string){
+                        console.log('Duplicate Found!');
+                        name--;
+                            
+                      }else{
+                          y = temp_string;
+                          formatted.pages.push(JSON.parse(JSON.stringify(temp_formatted)));
+                      }
+                       console.log('y :                          ' + y);
+                       console.log('Temp_string :                ' + temp_string);
+                     
+                       console.log(y == temp_string);
+                         console.log();
 
 
-                  // temp_formatted.elements.settings.src = data.src; //SRC voor base 64
+                 
+                   
+                        
+                    
 
-
-
-                  formatted.pages.push(JSON.parse(JSON.stringify(temp_formatted)));
+                 
 
 
 
 
                 } //END if
+                  
+             
             temp_formatted.elements = {};
               } // END page = x loop
             
