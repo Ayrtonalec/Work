@@ -1,0 +1,25 @@
+{
+    width: 0, //main
+    height: 0, //main
+    pages: [{
+        number: 0,
+        elements: [{
+            name: '', //unqiue (afbeelding1)   
+            type: 'shape', //path
+            width: 0,   
+            height: 0,
+            x: 0,
+            y: 0,
+            a: 0,
+            z: 0, //unique per pagina
+            settings: {} //afhankelijk van type
+        }]
+    }]
+}
+
+
+
+node --trace-warnings app.1.js
+
+
+

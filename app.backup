@@ -1,0 +1,199 @@
+var express = require('express');
+var app = express();
+var pdfjsLib = require('pdfjs-dist');
+var fs = require('fs');
+
+
+var Content_array = Array();
+
+
+function getMeta(doc){
+    var numPages = doc.numPages;
+    console.log('# Document Loaded');
+    console.log('Number of Pages: ' + numPages);
+    console.log();
+      var lastPromise; // will be used to chain promises
+    lastPromise = doc.getMetadata().then(function(data) {
+      console.log('# Metadata Is Loaded');
+      console.log('## Info');
+      console.log(JSON.stringify(data.info, null, 2));
+      console.log();
+      if (data.metadata) {
+        // console.log('## Metadata');
+        // console.log(JSON.stringify(data.metadata.getAll(), null, 2));
+        // console.log();
+      }
+      
+      
+    });
+};
+
+
+// var pdfPath = process.argv[2] || './Double-page.pdf';
+var pdfPath = process.argv[2] || './angled.pdf';
+
+
+
+app.get('/', function(req, res) {
+
+if(req.query.filter == "all"){
+    console.log('all is requested');
+}else if(req.query.filter == "text"){
+  console.log('Text is requested');
+}else if(req.query.filter == "image"){
+    console.log('image is requested');
+}else if(req.query.filter == "path"){
+    console.log('path is requested');
+}
+
+
+
+  // Will be using promises to load document, pages and misc data instead of
+  // callback.
+  pdfjsLib.getDocument(pdfPath).then(function(doc) {
+    
+    
+    
+    
+    switch(req.query.filter){
+  case 'all':
+     getMeta(doc);
+     
+    
+    break;
+      case 'text':
+       
+        
+    break;
+      case 'image':
+        
+        
+    break;
+      case 'path':
+        
+        
+    break;
+     case 'meta':
+     getMeta(doc);  
+       
+    break;
+      default:
+      
+    break;
+}
+
+
+    
+    
+    
+    
+    
+    
+    
+
+
+    var lastPromise; // will be used to chain promises
+    lastPromise = doc.getMetadata().then(function(data) {
+      console.log('# Metadata Is Loaded');
+      console.log('## Info');
+      console.log(JSON.stringify(data.info, null, 2));
+      console.log();
+      if (data.metadata) {
+        console.log('## Metadata');
+        console.log(JSON.stringify(data.metadata.getAll(), null, 2));
+        console.log();
+      }
+    });
+
+    var loadPage = function(pageNum) {
+      return doc.getPage(pageNum).then(function(page) {
+        var page_data = {};
+
+
+        console.log('# Page ' + pageNum);
+        var viewport = page.getViewport(1.0 /* scale */ ); //increase to 2 to increase quality >>>
+        console.log('Size: ' + viewport.width + 'x' + viewport.height);
+        console.log();
+
+
+        page_data.page_num = pageNum;
+        page_data.width = viewport.width;
+        page_data.hight = viewport.height;
+
+        Content_array.push(page_data);
+        console.log(Content_array);
+        // console.log(page.commonObjs); //Should contain font data but does not, it's empty
+        // source : https://github.com/mozilla/pdf.js/issues/7914
+
+        //@todo: get image data preferable base64
+        page.getOperatorList().then(function(ops) {
+          // console.log('RECOGNIZE --------------------------------------------');
+          // console.log("fnArray= ",ops.fnArray);
+          // console.log("T= ",pdfjsLib.OPS.painJpegXObject);
+          
+          for (var i = 0; i < ops.fnArray.length; i++) {
+
+
+            if (ops.fnArray[i] == pdfjsLib.OPS.showText) {
+              // window.objs.push(ops.argsArray[i][0])
+              // console.log('RECOGNIZE --------------------------------------------');
+              // console.log(this);
+              // console.log('RECOGNIZE --------------------------------------------');
+ 
+            }
+            // if (ops.fnArray[i] == 82) {
+            //   // window.objs.push(ops.argsArray[i][0])
+            //   console.log('RECOGNIZE --------------------------------------------');
+            //   console.log(ops.argsArray[i]);
+            //   console.log('RECOGNIZE --------------------------------------------');
+
+            // }
+          }
+        });
+
+        return page.getTextContent().then(function(content) {
+          // Content contains lots of information about the text layout and
+          // styles, but we need only strings at the moment
+
+          var strings = content.items.map(function(item) {
+            delete item.dir;
+            item.page = pageNum;
+
+
+            Content_array.push(item);
+            // console.log(item);
+            return item.str;
+          });
+          // console.log('## Text Content');
+          // console.log(strings.join(' '));
+        }).then(function() {
+          console.log();
+        });
+      })
+    };
+    // Loading of the first page will wait on metadata and subsequent loadings
+    // will wait on the previous pages.
+    for (var i = 1; i <= numPages; i++) {
+      lastPromise = lastPromise.then(loadPage.bind(null, i));
+    }
+    return lastPromise;
+  }).then(function() {
+
+    console.log('# End of Document');
+    console.log('pushh');
+    res.send({ content: Content_array });
+    Content_array = Array();
+  }, function(err) {
+    console.error('Error: ' + err);
+  });
+
+});
+
+
+
+
+app.listen(8080, function() {
+  console.log('Example app listening on port 8080!');
+});
+
+module.exports = app

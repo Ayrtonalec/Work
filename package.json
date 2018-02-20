@@ -1,10 +1,12 @@
 {
-    "name": "express-HelloWorld",
-    "description": "Hello World ExpressJS WebService",
-    "version": "0.0.1",
-    "private": true,
-    "dependencies": {
-        "express": "latest",
-        "aws-serverless-express": "latest"
-    }
+  "name": "express-HelloWorld",
+  "description": "Hello World ExpressJS WebService",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "async": "^2.6.0",
+    "aws-serverless-express": "latest",
+    "express": "latest",
+    "pdfjs-dist": "latest"
+  }
 }
