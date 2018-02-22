@@ -42,6 +42,14 @@ app.get('/', function(req, res) {
   // Will be using promises to load document, pages and misc data instead of
   // callback.
   pdfjsLib.getDocument(pdfPath).then(function(doc) {
+
+
+
+
+
+
+
+
     numPages = doc.numPages;
     lastPromise = doc.getMetadata();
     var loadPage = function(pageNum) {
@@ -61,14 +69,14 @@ app.get('/', function(req, res) {
 
 
         page.getTextContent().then(function(content) {
-
+// console.log(content);
           // Setting Page info
           operator.pageInfo(pageNum, viewport, function(map) {
             pageinfo = map;
 
           });
 
-  
+
           switch (req.query.filter) {
 
             case 'text':
@@ -112,8 +120,8 @@ app.get('/', function(req, res) {
               operator.getImage(page, pdfjsLib, pageinfo, function(map) {
 
                 Content_array.push(map);
-      //             console.log('()__())(_+_+--==-=-__+-=-=-=-_-_+=-=_+_+-=-=_+-==-==-__+');
-      // console.log(Content_array);
+                //             console.log('()__())(_+_+--==-=-__+-=-=-=-_-_+=-=_+_+-=-=_+-==-==-__+');
+                // console.log(Content_array);
                 load = 'true'; // allowence to proceed
               });
 
@@ -180,11 +188,11 @@ app.get('/', function(req, res) {
 
               //Image function pasting
               operator.getImage(page, pdfjsLib, pageinfo, function(map) {
-              
+
                 Content_array.push(map);
                 // load = 'false'; // allowence to proceed
               });
-              
+
 
               //------------End -------------//
               //------------Insert path -------------//
@@ -201,13 +209,13 @@ app.get('/', function(req, res) {
               break;
 
           }
-    
 
-// console.log('----=----TOP--==-------');
-//           console.log(Content_array);
-//         console.log('----=----END--==-------');
-      //     console.log('--==-==--=---=-=-=--=-=-=--=-=----=-=-=_+_+--==-=-__+-=-=-=-_-_+=-=_+_+-=-=_+-==-==-__+');
-      // console.log(Content_array);
+
+          // console.log('----=----TOP--==-------');
+          //           console.log(Content_array);
+          //         console.log('----=----END--==-------');
+          //     console.log('--==-==--=---=-=-=--=-=-=--=-=----=-=-=_+_+--==-=-__+-=-=-=-_-_+=-=_+_+-=-=_+-==-==-__+');
+          // console.log(Content_array);
           Content_array.pages = Array();
           Content_array.items = Array();
           Content_array.styles = Array();
@@ -220,7 +228,7 @@ app.get('/', function(req, res) {
           }
 
         }).then(function() {
-          console.log();
+          // console.log();
         }); //End getTextContent
 
         // console.log(Content_array);
@@ -249,43 +257,48 @@ app.get('/', function(req, res) {
     var _flagCheck = setInterval(function() { //Checking whether load is set to true
       if (load == 'true') {
         clearInterval(_flagCheck);
-        try{
-        if(typeof Content_array[0][0].width === 'undefined'){
-          var Special_array = Content_array[0];
-        }else{
-          var Special_array = Content_array[0][0];
+        try {
+          // fs.writeFileSync("./logs/array.js", JSON.stringify(Content_array, null, 4)); 
+
+          if (typeof Content_array[0][0].width === 'undefined') {
+            var Special_array = Content_array[0];
+          }
+          else {
+            var Special_array = Content_array[0][0];
+          }
         }
-        }catch(x){
+        catch (x) {
           var Special_array = Content_array[0];
         }
         // console.log('----------------------------------__---------_--__-_-__-_-_--__-_-_-_--_-_-_______--_-_-_-----_--__');
         // console.log(Content_array);
-          try{
-        formatted.width = Special_array.width; // 0 = page 0 -> Todo change 0 to loop for each page || Solved by removing the [0]
-        formatted.height = Special_array.height;
-          }catch(x){
-                    formatted.width = Special_array.image_scale_width; // 0 = page 0 -> Todo change 0 to loop for each page || Solved by removing the [0]
-        formatted.height = Special_array.image_scale_height;
-          }
+        try {
+          formatted.width = Special_array.width; // 0 = page 0 -> Todo change 0 to loop for each page || Solved by removing the [0]
+          formatted.height = Special_array.height;
+        }
+        catch (x) {
+          formatted.width = Special_array.image_scale_width; // 0 = page 0 -> Todo change 0 to loop for each page || Solved by removing the [0]
+          formatted.height = Special_array.image_scale_height;
+        }
         formatted.pages = new Array();
         var temp_formatted = {};
 
 
 
-       
+
         var content = new Array(); //@todo: regelen dat de [0] uit content array removed wordt.
-       
+
         for (var u = 0; u < Content_array.length; u++) { // 26 loop
 
           // if (typeof lastname === "undefined") { // filter undefined out [error preventing] // maybe killing it 
           //   Content_array[u] = 0;
-           
+
           // }
 
-          if(typeof Content_array[u].length === 'undefined'){
+          if (typeof Content_array[u].length === 'undefined') {
             content.push(Content_array);
           }
-// Math.round(Math.asin(data.transform[1]) * (180/Math.PI))
+          // Math.round(Math.asin(data.transform[1]) * (180/Math.PI))
 
           // content.push(Content_array[u]);
           // console.log("26 loop :      " + Content_array.length);
@@ -309,7 +322,6 @@ app.get('/', function(req, res) {
           }
 
         }
-    
 
 
 
@@ -317,7 +329,7 @@ app.get('/', function(req, res) {
 
 
 
-   var y = '';
+          var y = '';
           // console.log('pagenumber = x =   #' + x);
 
           // console.log(Content_array[x]);
@@ -338,15 +350,15 @@ app.get('/', function(req, res) {
 
 
             try {
-             
+
               // console.log(data)
               // console.log('elementnumber = i =   #' + i);
               //   // console.log('element_page = ' + Content_array[0][i].page);
-                // console.log(data)
+              // console.log(data)
               // console.log(Content_array[0][i]);
               // console.log(i);
 
-            
+
 
               if (data.page == x) {
                 // console.log('elementnumber = i =   #' + i);
@@ -371,16 +383,16 @@ app.get('/', function(req, res) {
                   temp_formatted.elements.height = data.height;
                   temp_formatted.elements.x = data.transform[4];
                   temp_formatted.elements.y = data.transform[5];
-                  temp_formatted.elements.a = Math.floor((Math.round(data.transform[1]) * (180/Math.PI) / 10 ).toFixed(0)); //Rotation variable (still to be calculated how many degrees it's turned)
+                  temp_formatted.elements.a = Math.floor((Math.round(data.transform[1]) * (180 / Math.PI) / 10).toFixed(0)); //Rotation variable (still to be calculated how many degrees it's turned)
                   temp_formatted.elements.z = name; //z-index (++ variable)
                   temp_formatted.elements.settings = {};
                   temp_formatted.elements.settings.text = data.str;
                   temp_formatted.elements.settings.fontFamily = data.fontName;
                   // console.log('text :    ' + data.str);
                   // console.log('graden : ' + Math.round(data.transform[1]) * (180/Math.PI) / 10 + '°');
-                  
-                  
-                  
+
+
+
 
                   // formatted.pages.push(JSON.stringify(temp_formatted));
                   // formatted.pages.push(JSON.stringify(temp_formatted).replace('\\', ''));
@@ -393,16 +405,16 @@ app.get('/', function(req, res) {
                   // console.log(temp_formatted);
                   // console.log(Content_array[0][i]);
                   // console.log(JSON.stringify(temp_formatted, null, 4));
-                  console.log();
+                  // console.log();
                 }
                 else if (data.image_name != null) { // If image
-                
-                
-            
-                  
-                 temp_formatted.elements.type = 'image';
-                
-                        temp_formatted.elements.width = data.image_scale_width;
+
+
+
+
+                  temp_formatted.elements.type = 'image';
+
+                  temp_formatted.elements.width = data.image_scale_width;
                   temp_formatted.elements.height = data.image_scale_height;
                   temp_formatted.elements.x = data.image_x;
                   temp_formatted.elements.y = data.image_y;
@@ -411,13 +423,14 @@ app.get('/', function(req, res) {
                   temp_formatted.elements.settings = {};
 
 
-                 
-        
-        console.log('Initiate IMAGE' + data.image_name);
-              
-                  // temp_formatted.elements.settings.src = data.src; //SRC voor base 64
 
-  
+
+                  console.log('Initiate IMAGE' + data.image_name);
+
+                  // temp_formatted.elements.settings.src = data.src; //SRC voor base 64
+                  temp_formatted.elements.settings.src = 'BASE64_Image_' + data.image_name; //SRC voor base 64
+
+
 
                   formatted.pages.push(JSON.parse(JSON.stringify(temp_formatted)));
 
@@ -425,7 +438,7 @@ app.get('/', function(req, res) {
 
                 }
                 else if (data[0] == 'M') { // If path
-   temp_formatted.elements.type = 'path';
+                  temp_formatted.elements.type = 'path';
                   temp_formatted.elements.x = data[1];
                   temp_formatted.elements.y = data[2];
                   temp_formatted.elements.a; //Rotation variable (still to be calculated how many degrees it's turned)
@@ -433,75 +446,67 @@ app.get('/', function(req, res) {
                   temp_formatted.elements.settings = {};
                   var new_path = new Array(); //new
                   var temp_string = '';
-               
-                  for(var o=0; o < data.length; o++){
-                    
-                    
-                    if(isNaN(data[o])){
+
+                  for (var o = 0; o < data.length; o++) {
+
+
+                    if (isNaN(data[o])) {
                       //if text
-                      if(temp_string.substr(temp_string.length - 1) == ','){
+                      if (temp_string.substr(temp_string.length - 1) == ',') {
                         temp_string = temp_string.slice(0, -1);
                       }
-                       temp_string = temp_string + data[o];
-                       
-                       
-                       
+                      temp_string = temp_string + data[o];
+
+
+
                       // new_path.push(data[o]);
-                    }else{
-                      
-                      if( isNaN(temp_string.substr(temp_string.length - 1)) ){ //? 
-                      // console.log('temp str last character :     ' + temp_string.substr(temp_string.length - 1));
-                      // console.log('data:     ' + data[o]);
+                    }
+                    else {
+
+                      if (isNaN(temp_string.substr(temp_string.length - 1))) { //? 
+                        // console.log('temp str last character :     ' + temp_string.substr(temp_string.length - 1));
+                        // console.log('data:     ' + data[o]);
                         //letter
-                          temp_string = temp_string + data[o];
-                          
-                            temp_string = temp_string + ','; 
-                      }else{
-                        
+                        temp_string = temp_string + data[o];
+
+                        temp_string = temp_string + ',';
+                      }
+                      else {
+
                         // temp_string = '';
                         //number
                       }
-                      
-        
+
+
                     }
-                  }//foreach DATA (path)
-                   
-                     new_path.push(temp_string);
-                      
-                    
+                  } //foreach DATA (path)
+
+                  new_path.push(temp_string);
+
+
                   temp_formatted.elements.settings.path = new_path;
-               
-                      if(y == temp_string){
-                        console.log('Duplicate Found!');
-                        name--;
-                            
-                      }else{
-                          y = temp_string;
-                          formatted.pages.push(JSON.parse(JSON.stringify(temp_formatted)));
-                      }
-                       console.log('y :                          ' + y);
-                       console.log('Temp_string :                ' + temp_string);
-                     
-                       console.log(y == temp_string);
-                         console.log();
 
+                  if (y == temp_string) {
+                    console.log('Duplicate Found!');
+                    name--;
 
-                 
-                   
-                        
-                    
+                  }
+                  else {
+                    y = temp_string;
+                    formatted.pages.push(JSON.parse(JSON.stringify(temp_formatted)));
+                  }
+                  console.log('y :                          ' + y);
+                  console.log('Temp_string :                ' + temp_string);
 
-                 
-
-
-
+                  console.log(y == temp_string);
+                  // console.log();
 
                 } //END if
-                  
-             
-            temp_formatted.elements = {};
+
+
+                temp_formatted.elements = {};
               } // END page = x loop
-            
+
             } // Element try loop
             catch (err) {} // END IF PAGE = correct PAGE loop
 
@@ -509,7 +514,7 @@ app.get('/', function(req, res) {
 
 
           } // FORCED IF TO CHECK WHETHER PAGE EVEN EXCISTS
-          console.log();
+          // console.log();
 
         } // END pages loop
 
