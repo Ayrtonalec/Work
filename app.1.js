@@ -9,12 +9,9 @@ var operator = require('./core/Operator_class');
 
 const winston = require('winston');
 
-let logger = new(winston.Logger)({
-  transports: [
-    new(winston.transports.Console)(),
-    new(winston.transports.File)({ filename: '/tmp/somefile.log' })
-  ]
-});
+var pager = 0;
+
+
 
 var formatted = {}; // Eind formaat
 
@@ -22,7 +19,8 @@ var formatted = {}; // Eind formaat
 
 var lastPromise; // will be used to chain promises
 var Content_array = Array();
-
+     var data_array = new Array();
+     
 // var pdfPath = process.argv[2] || './pdf/Double-page.pdf';
 // var pdfPath = process.argv[2] || './pdf/angled_2.pdf';
 // var pdfPath = process.argv[2] || './pdf/angled_3.pdf';
@@ -41,6 +39,8 @@ app.get('/', function(req, res) {
 
   // Will be using promises to load document, pages and misc data instead of
   // callback.
+  pdfjsLib.disableFontFace = true; // should resolve document not defined error
+  
   pdfjsLib.getDocument(pdfPath).then(function(doc) {
 
 
@@ -51,6 +51,9 @@ app.get('/', function(req, res) {
 
 
     numPages = doc.numPages;
+    console.log(numPages);
+
+    
     lastPromise = doc.getMetadata();
     var loadPage = function(pageNum) {
 
@@ -80,14 +83,19 @@ app.get('/', function(req, res) {
           switch (req.query.filter) {
 
             case 'text':
-
+              //loops through 4 times, once for each page
+       
               // Content contains lots of information about the text layout and
               // styles, but we need only strings at the moment
 
               //Test data gather
               Content_array.items = new Array();
-              operator.getText(page, pageinfo, content, function(map) {
+              operator.getText(page, pageinfo, content, numPages, data_array, function(map) {
+        
 
+        
+        
+        
                 Content_array.push(map);
 
 
@@ -113,7 +121,10 @@ app.get('/', function(req, res) {
 
                 load = 'true'; // allowence to proceed
               });
-
+              console.log('data_array pushed');
+     fs.writeFileSync("./logs/data_array.js", JSON.stringify(data_array, null, 4)); //no idea what
+ 
+              // console.log(data_array);
               break;
             case 'image':
               //Image function pasting
@@ -152,7 +163,7 @@ app.get('/', function(req, res) {
 
               //Test data gather
               Content_array.items = new Array();
-              operator.getText(page, pageinfo, content, function(map) {
+              operator.getText(page, pageinfo, content, numPages, data_array, function(map) {
 
                 Content_array.push(map);
                 // console.log(map);
@@ -270,8 +281,7 @@ app.get('/', function(req, res) {
         catch (x) {
           var Special_array = Content_array[0];
         }
-        // console.log('----------------------------------__---------_--__-_-__-_-_--__-_-_-_--_-_-_______--_-_-_-----_--__');
-        // console.log(Content_array);
+       
         try {
           formatted.width = Special_array.width; // 0 = page 0 -> Todo change 0 to loop for each page || Solved by removing the [0]
           formatted.height = Special_array.height;
@@ -388,6 +398,7 @@ app.get('/', function(req, res) {
                   temp_formatted.elements.settings = {};
                   temp_formatted.elements.settings.text = data.str;
                   temp_formatted.elements.settings.fontFamily = data.fontName;
+                   temp_formatted.elements.settings.color = data.colour;
                   // console.log('text :    ' + data.str);
                   // console.log('graden : ' + Math.round(data.transform[1]) * (180/Math.PI) / 10 + '°');
 
@@ -486,7 +497,7 @@ app.get('/', function(req, res) {
 
                   temp_formatted.elements.settings.path = new_path;
 
-                  if (y == temp_string) {
+                  if (y == temp_string) { //Preventing duplicate Object names from occuring
                     console.log('Duplicate Found!');
                     name--;
 

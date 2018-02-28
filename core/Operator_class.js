@@ -3,9 +3,12 @@ class Operator {
 
 
     constructor(doc) {
-
+        this.rgbdata = new Array();
         console.log('# Document Loaded');
         this.page_data = {};
+    }
+    rgbToHex(r, g, b) {
+        return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
     }
     getMeta(doc, callback) {
         console.log('Number of Pages: ' + doc.numPages);
@@ -41,57 +44,123 @@ class Operator {
         this.page_data.height = viewport.height;
         return callback(this);
     }
-    getText(page, paginfo, content, Callback) {
+    getText(page, paginfo, content, numPages, data, Callback) {
+        // data.push('lmao'); //werkt todo: remove 
+        // console.log('numPages:  ' + numPages);
+
+
+
         var length = 0;
-         var arr = new Array();
-         var counter = 0;
-            var c = 0;
-        page.getOperatorList().then(function(ops) {
+
+        var counter = 0;
+
+
+
+        if (typeof arr === 'undefined') {
+            var arr = new Array();
+            // for (var mc = 0; mc < numPages; mc++) {
+            //     // console.log('Page ' + mc + ' initiated... ')
+            //     arr[mc] = new Array(); //page
+            // }
+
+        }
+
+        console.log();
+
+        //Also loop through 4 times
+
+
+        page.getOperatorList().then(function(ops) { // Loop through 4 times, for each page once
+            // console.log();
+            // console.log('counter: ' + counter++);
+            // console.log();
+            var Temp_array = new Array();
+
             length = ops.fnArray;
-            var a = 0;
-            
-            var t = 'false';
-            var u = 0;
-            var arg = '';
-           
+            var a = 0; // Not used
+
+            var t = 'false'; // Not used
+            var u = 0; //initiate for OPS
+            var arg = ''; //used for ARG
+
 
             for (var i = 0; i < ops.fnArray.length; i++) {
+
+
                 // console.log(util.inspect(ops.argsArray[i], false, null))
                 // console.log('# ' + i + '  :   ' + ops.fnArray [i]);
-                u = ops.fnArray[i];
-                arg = ops.argsArray[i];
-                if(typeof arr[c] === 'undefined'){
-                    console.log('Page +:  ' + c);
-                arr[c] = new Array();  //page
-                }
-                if(typeof arr[c][counter] === 'undefined'){
-                    console.log('Add Counter +:  ' + counter);
-                arr[c][counter] = new Array();  //counter
-                }
-                if (u == 59 || u == 44) {
-                    if (u == 59) { // RGB
-                        arr[c].push(arg);
+                u = ops.fnArray[i]; //
+                if (typeof ops.argsArray[i] !== 'undefined') {
+
+                    if (ops.argsArray[i] != null) {
+
+                        var temp = ops.argsArray[i];
+                        arg = Array.from(temp);
+
+
+
+
+                        //   console.log('Initiate Temp, arg & Temp_array ');
                     }
-                    else if (u == 44) { // Text
-                    arr[c][counter].push(arg);
-                     console.log('Arrrrrrrrrr:  ');
-                    // console.log(arr);
-                    counter++;
-                    }
-                    // for (a = i+3; a >= (i - 3); a--) {
-                    //     console.log();
-                    //                 //   console.log('Fill');
-                    // console.log(ops.argsArray[i]);
-                    //                 //   console.log();
-                    // }
                 }
-            }
-           
+                //  arr.push('');
+                //   arr.push(' -------------------------- ');
+                //  arr.push('# ' + i);
+
+                //   arr.push(' ');
+                //   arr.push(ops.argsArray[i]);
+
+
+                if (u == 59 || u == 44 || u == 9 || u == 32) { // Loop through 51 -49 -39 -39
+
+
+                    switch (u) {
+                        case 59:
+                            // console.log('RGB Init: ')
+
+
+
+                            Temp_array.push({ hex: "#" + ((1 << 24) + (arg[0] << 16) + (arg[1] << 8) + arg[2]).toString(16).slice(1) });
+
+                            // code
+                            break;
+                        case 44:
+
+                            var parts = '';
+                            for (var p = 0; p < arg[0].length; p++) {
+
+                                var part = arg[0][p]; // Part
+                                if (isNaN(part)) {
+                                    parts = parts + part.unicode
+                                }
+
+                            }
+                            //  console.log(parts);
+                            // return;
+                            Temp_array.push(parts);
+                            // code, breakdown letters to words 
+                            break;
+                        case 32:
+                            // code
+                            // console.log('Closure Init: ')
+                            // console.log(Temp_array);
+                            data.push(Temp_array);
+                            Temp_array = new Array();
+                            break;
+
+
+                    }
+
+                }
+
+
+            } //foreach
+
+
         });
-        c++;
-         console.log('Arrrrrrrrrr:  ');
-            console.log(arr);
-        // return;
+
+
+        var old_hex = '';
         var Content_array = Array();
 
         var i = 0; // used for page numbering
@@ -99,8 +168,65 @@ class Operator {
 
 
         var strings = content.items.map(function(item) {
+            // console.log(item.str);
+            // return;
+
+            for (var p = 0; p < data.length; p++) {
+
+                if (typeof data[p][0].hex === 'undefined' || typeof data[p][0].hex !== 'undefined') {
+                    // console.log(data[p]);
+                    // for(var q = 0; q < data.length; q++){
+                    for (var d = 0; typeof data[p][d].hex !== 'undefined'; d++) {
+
+                        // console.log(d);
+
+                        counter = d;
+                    }
+
+                    console.log(item.str + '       ||||' + counter + '||||       ' + data[p][d]);
+                    // }
+
+
+                    if (data[p][d] == item.str) {
+
+                        console.log('Match!');
+                        for (var g = 0; g < 99; g++) {
+                            if (typeof data[p - g - 1] !== 'undefined') {
+                                if (typeof data[p - g - 1][0].hex !== 'undefined') {
+
+
+
+                                    item.colour = data[p - g - 1][0].hex;
+                                    old_hex = data[p - g - 1][0].hex;
+                                    //   console.log('Other data --->' + data[p-g-1][0].hex);
+                                    //   console.log(data[p-g-0][0]);
+
+                                    g = 99;
+                                    break;
+
+                                }
+                            }
+
+
+                        }
+
+                        break;
+                    } // if item == Match!
+
+
+
+                } // Useless
+
+                if (p == data.length - 1) {
+                    item.colour = old_hex;
+                    console.log('Failed to match :(');
+                }
+            } /// for loop
+
+
+
             delete item.dir;
-            //           console.log('Item:;:          -  ' + counter++);
+            //   console.log('Item:;:          -  ' + counter++);
             // console.log(item);
             item.page = paginfo.page_data.page_num;
             // console.log('Pagedata: #' + i);
@@ -136,7 +262,7 @@ class Operator {
 
             for (var i = 0; i < ops.fnArray.length; i++) {
                 // console.log(util.inspect(ops.argsArray[i], false, null))
-                console.log('# ' + i + '  :   ' + ops.fnArray[i]);
+                // console.log('# ' + i + '  :   ' + ops.fnArray[i]);
                 // if(ops.fnArray[i] == 22){
                 //     for (a = i+3; a >= (i - 3); a--) {
                 //         console.log();
