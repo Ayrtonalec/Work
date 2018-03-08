@@ -1,4 +1,5 @@
-const util = require('util')
+const util = require('util');
+var fs = require('fs');
 class Operator {
 
 
@@ -34,19 +35,16 @@ class Operator {
             return callback(Meta_data);
 
         });
-        console.log(lastPromise);
+
     }
     pageInfo(pageNum, viewport, callback) {
-
-
         this.page_data.page_num = pageNum;
         this.page_data.width = viewport.width;
         this.page_data.height = viewport.height;
         return callback(this);
     }
     getText(page, paginfo, content, numPages, data, Callback) {
-        // data.push('lmao'); //werkt todo: remove 
-        // console.log('numPages:  ' + numPages);
+
 
 
 
@@ -58,22 +56,13 @@ class Operator {
 
         if (typeof arr === 'undefined') {
             var arr = new Array();
-            // for (var mc = 0; mc < numPages; mc++) {
-            //     // console.log('Page ' + mc + ' initiated... ')
-            //     arr[mc] = new Array(); //page
-            // }
 
         }
 
-        console.log();
-
-        //Also loop through 4 times
 
 
         page.getOperatorList().then(function(ops) { // Loop through 4 times, for each page once
-            // console.log();
-            // console.log('counter: ' + counter++);
-            // console.log();
+
             var Temp_array = new Array();
 
             length = ops.fnArray;
@@ -100,16 +89,9 @@ class Operator {
 
 
 
-                        //   console.log('Initiate Temp, arg & Temp_array ');
+
                     }
                 }
-                //  arr.push('');
-                //   arr.push(' -------------------------- ');
-                //  arr.push('# ' + i);
-
-                //   arr.push(' ');
-                //   arr.push(ops.argsArray[i]);
-
 
                 if (u == 59 || u == 44 || u == 9 || u == 32) { // Loop through 51 -49 -39 -39
 
@@ -259,7 +241,7 @@ class Operator {
             length = ops.fnArray;
             var a = 0;
             var t = 'false';
-
+            fs.writeFileSync("./logs/" + 'Args_data' + ".js", JSON.stringify(ops.argsArray, null, 4));
             for (var i = 0; i < ops.fnArray.length; i++) {
                 // console.log(util.inspect(ops.argsArray[i], false, null))
                 // console.log('# ' + i + '  :   ' + ops.fnArray[i]);
