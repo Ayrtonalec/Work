@@ -16,7 +16,7 @@
             109.1339,
             702.496
         ],
-        "fontName": "g_d1_f5",
+        "fontName": "g_d0_f1",
         "page": 1
     },
     {
@@ -31,8 +31,7 @@
             109.1339,
             688.096
         ],
-        "fontName": "g_d1_f5",
-        "colour": "",
+        "fontName": "g_d0_f1",
         "page": 1
     },
     {
@@ -47,8 +46,7 @@
             465.0419,
             688.096
         ],
-        "fontName": "g_d1_f5",
-        "colour": "",
+        "fontName": "g_d0_f1",
         "page": 1
     },
     {
@@ -63,8 +61,7 @@
             109.13389999999998,
             673.696
         ],
-        "fontName": "g_d1_f5",
-        "colour": "",
+        "fontName": "g_d0_f1",
         "page": 1
     },
     {
@@ -79,8 +76,7 @@
             109.13389999999998,
             659.296
         ],
-        "fontName": "g_d1_f5",
-        "colour": "",
+        "fontName": "g_d0_f1",
         "page": 1
     },
     {
@@ -95,8 +91,7 @@
             109.13389999999998,
             644.8960000000001
         ],
-        "fontName": "g_d1_f5",
-        "colour": "",
+        "fontName": "g_d0_f1",
         "page": 1
     },
     {
@@ -111,8 +106,7 @@
             109.13389999999998,
             630.4960000000001
         ],
-        "fontName": "g_d1_f5",
-        "colour": "",
+        "fontName": "g_d0_f1",
         "page": 1
     },
     {
@@ -127,8 +121,7 @@
             109.13389999999998,
             616.0960000000001
         ],
-        "fontName": "g_d1_f5",
-        "colour": "",
+        "fontName": "g_d0_f1",
         "page": 1
     },
     {
@@ -143,8 +136,7 @@
             109.13389999999998,
             601.6960000000001
         ],
-        "fontName": "g_d1_f5",
-        "colour": "",
+        "fontName": "g_d0_f1",
         "page": 1
     },
     {
@@ -159,8 +151,7 @@
             109.13389999999998,
             587.2960000000002
         ],
-        "fontName": "g_d1_f5",
-        "colour": "",
+        "fontName": "g_d0_f1",
         "page": 1
     },
     {
@@ -175,8 +166,7 @@
             109.13389999999998,
             572.8960000000002
         ],
-        "fontName": "g_d1_f5",
-        "colour": "",
+        "fontName": "g_d0_f1",
         "page": 1
     },
     {
@@ -191,8 +181,8 @@
             268.2883,
             770.657
         ],
-        "fontName": "g_d1_f6",
-        "colour": "",
+        "fontName": "g_d0_f2",
+        "colour": "#2b2e34",
         "page": 1
     },
     {
@@ -207,8 +197,7 @@
             92.126,
             434.8982
         ],
-        "fontName": "g_d1_f6",
-        "colour": "#2b2e34",
+        "fontName": "g_d0_f2",
         "page": 1
     },
     {
@@ -223,8 +212,7 @@
             92.126,
             420.4982
         ],
-        "fontName": "g_d1_f6",
-        "colour": "#2b2e34",
+        "fontName": "g_d0_f2",
         "page": 1
     },
     {
@@ -239,8 +227,7 @@
             92.126,
             406.0982
         ],
-        "fontName": "g_d1_f6",
-        "colour": "#2b2e34",
+        "fontName": "g_d0_f2",
         "page": 1
     },
     {
@@ -255,8 +242,7 @@
             67.8798,
             466.5171
         ],
-        "fontName": "g_d1_f6",
-        "colour": "#2b2e34",
+        "fontName": "g_d0_f2",
         "page": 1
     },
     {
@@ -271,8 +257,7 @@
             73.9907,
             454.4734
         ],
-        "fontName": "g_d1_f7",
-        "colour": "#2b2e34",
+        "fontName": "g_d0_f3",
         "page": 1
     },
     {
@@ -287,8 +272,7 @@
             143.4426008,
             482.21078559999995
         ],
-        "fontName": "g_d1_f8",
-        "colour": "#2b2e34",
+        "fontName": "g_d0_f4",
         "page": 1
     },
     {
@@ -303,8 +287,7 @@
             145.9723796,
             483.2211171999999
         ],
-        "fontName": "g_d1_f7",
-        "colour": "#2b2e34",
+        "fontName": "g_d0_f3",
         "page": 1
     },
     [
@@ -326,7 +309,7 @@
                     109.1339,
                     702.496
                 ],
-                "fontName": "g_d1_f5",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -341,8 +324,7 @@
                     109.1339,
                     688.096
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -357,8 +339,7 @@
                     465.0419,
                     688.096
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -373,8 +354,7 @@
                     109.13389999999998,
                     673.696
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -389,8 +369,7 @@
                     109.13389999999998,
                     659.296
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -405,8 +384,7 @@
                     109.13389999999998,
                     644.8960000000001
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -421,8 +399,7 @@
                     109.13389999999998,
                     630.4960000000001
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -437,8 +414,7 @@
                     109.13389999999998,
                     616.0960000000001
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -453,8 +429,7 @@
                     109.13389999999998,
                     601.6960000000001
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -469,8 +444,7 @@
                     109.13389999999998,
                     587.2960000000002
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -485,8 +459,7 @@
                     109.13389999999998,
                     572.8960000000002
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -501,8 +474,8 @@
                     268.2883,
                     770.657
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "",
+                "fontName": "g_d0_f2",
+                "colour": "#2b2e34",
                 "page": 1
             },
             {
@@ -517,8 +490,7 @@
                     92.126,
                     434.8982
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f2",
                 "page": 1
             },
             {
@@ -533,8 +505,7 @@
                     92.126,
                     420.4982
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f2",
                 "page": 1
             },
             {
@@ -549,8 +520,7 @@
                     92.126,
                     406.0982
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f2",
                 "page": 1
             },
             {
@@ -565,8 +535,7 @@
                     67.8798,
                     466.5171
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f2",
                 "page": 1
             },
             {
@@ -581,8 +550,7 @@
                     73.9907,
                     454.4734
                 ],
-                "fontName": "g_d1_f7",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f3",
                 "page": 1
             },
             {
@@ -597,8 +565,7 @@
                     143.4426008,
                     482.21078559999995
                 ],
-                "fontName": "g_d1_f8",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f4",
                 "page": 1
             },
             {
@@ -613,8 +580,7 @@
                     145.9723796,
                     483.2211171999999
                 ],
-                "fontName": "g_d1_f7",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f3",
                 "page": 1
             }
         ],
@@ -622,27 +588,27 @@
             "fontFamily": "serif",
             "ascent": 0.75,
             "descent": -0.25,
-            "fontName": "g_d1_f5"
+            "fontName": "g_d0_f1"
         },
         {
             "fontFamily": "serif",
             "ascent": 0.989,
             "descent": -0.36,
-            "fontName": "g_d1_f6"
-        },
-        {
-            "fontFamily": "serif",
-            "ascent": 0.989,
-            "descent": -0.36,
-            "vertical": false,
-            "fontName": "g_d1_f7"
+            "fontName": "g_d0_f2"
         },
         {
             "fontFamily": "serif",
             "ascent": 0.989,
             "descent": -0.36,
             "vertical": false,
-            "fontName": "g_d1_f8"
+            "fontName": "g_d0_f3"
+        },
+        {
+            "fontFamily": "serif",
+            "ascent": 0.989,
+            "descent": -0.36,
+            "vertical": false,
+            "fontName": "g_d0_f4"
         }
     ],
     [
@@ -664,7 +630,7 @@
                     109.1339,
                     702.496
                 ],
-                "fontName": "g_d1_f5",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -679,8 +645,7 @@
                     109.1339,
                     688.096
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -695,8 +660,7 @@
                     465.0419,
                     688.096
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -711,8 +675,7 @@
                     109.13389999999998,
                     673.696
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -727,8 +690,7 @@
                     109.13389999999998,
                     659.296
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -743,8 +705,7 @@
                     109.13389999999998,
                     644.8960000000001
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -759,8 +720,7 @@
                     109.13389999999998,
                     630.4960000000001
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -775,8 +735,7 @@
                     109.13389999999998,
                     616.0960000000001
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -791,8 +750,7 @@
                     109.13389999999998,
                     601.6960000000001
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -807,8 +765,7 @@
                     109.13389999999998,
                     587.2960000000002
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -823,8 +780,7 @@
                     109.13389999999998,
                     572.8960000000002
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -839,8 +795,8 @@
                     268.2883,
                     770.657
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "",
+                "fontName": "g_d0_f2",
+                "colour": "#2b2e34",
                 "page": 1
             },
             {
@@ -855,8 +811,7 @@
                     92.126,
                     434.8982
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f2",
                 "page": 1
             },
             {
@@ -871,8 +826,7 @@
                     92.126,
                     420.4982
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f2",
                 "page": 1
             },
             {
@@ -887,8 +841,7 @@
                     92.126,
                     406.0982
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f2",
                 "page": 1
             },
             {
@@ -903,8 +856,7 @@
                     67.8798,
                     466.5171
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f2",
                 "page": 1
             },
             {
@@ -919,8 +871,7 @@
                     73.9907,
                     454.4734
                 ],
-                "fontName": "g_d1_f7",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f3",
                 "page": 1
             },
             {
@@ -935,8 +886,7 @@
                     143.4426008,
                     482.21078559999995
                 ],
-                "fontName": "g_d1_f8",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f4",
                 "page": 1
             },
             {
@@ -951,8 +901,7 @@
                     145.9723796,
                     483.2211171999999
                 ],
-                "fontName": "g_d1_f7",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f3",
                 "page": 1
             }
         ],
@@ -960,27 +909,27 @@
             "fontFamily": "serif",
             "ascent": 0.75,
             "descent": -0.25,
-            "fontName": "g_d1_f5"
+            "fontName": "g_d0_f1"
         },
         {
             "fontFamily": "serif",
             "ascent": 0.989,
             "descent": -0.36,
-            "fontName": "g_d1_f6"
-        },
-        {
-            "fontFamily": "serif",
-            "ascent": 0.989,
-            "descent": -0.36,
-            "vertical": false,
-            "fontName": "g_d1_f7"
+            "fontName": "g_d0_f2"
         },
         {
             "fontFamily": "serif",
             "ascent": 0.989,
             "descent": -0.36,
             "vertical": false,
-            "fontName": "g_d1_f8"
+            "fontName": "g_d0_f3"
+        },
+        {
+            "fontFamily": "serif",
+            "ascent": 0.989,
+            "descent": -0.36,
+            "vertical": false,
+            "fontName": "g_d0_f4"
         }
     ],
     [
@@ -1002,7 +951,7 @@
                     109.1339,
                     702.496
                 ],
-                "fontName": "g_d1_f5",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1017,8 +966,7 @@
                     109.1339,
                     688.096
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1033,8 +981,7 @@
                     465.0419,
                     688.096
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1049,8 +996,7 @@
                     109.13389999999998,
                     673.696
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1065,8 +1011,7 @@
                     109.13389999999998,
                     659.296
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1081,8 +1026,7 @@
                     109.13389999999998,
                     644.8960000000001
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1097,8 +1041,7 @@
                     109.13389999999998,
                     630.4960000000001
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1113,8 +1056,7 @@
                     109.13389999999998,
                     616.0960000000001
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1129,8 +1071,7 @@
                     109.13389999999998,
                     601.6960000000001
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1145,8 +1086,7 @@
                     109.13389999999998,
                     587.2960000000002
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1161,8 +1101,7 @@
                     109.13389999999998,
                     572.8960000000002
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1177,8 +1116,8 @@
                     268.2883,
                     770.657
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "",
+                "fontName": "g_d0_f2",
+                "colour": "#2b2e34",
                 "page": 1
             },
             {
@@ -1193,8 +1132,7 @@
                     92.126,
                     434.8982
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f2",
                 "page": 1
             },
             {
@@ -1209,8 +1147,7 @@
                     92.126,
                     420.4982
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f2",
                 "page": 1
             },
             {
@@ -1225,8 +1162,7 @@
                     92.126,
                     406.0982
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f2",
                 "page": 1
             },
             {
@@ -1241,8 +1177,7 @@
                     67.8798,
                     466.5171
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f2",
                 "page": 1
             },
             {
@@ -1257,8 +1192,7 @@
                     73.9907,
                     454.4734
                 ],
-                "fontName": "g_d1_f7",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f3",
                 "page": 1
             },
             {
@@ -1273,8 +1207,7 @@
                     143.4426008,
                     482.21078559999995
                 ],
-                "fontName": "g_d1_f8",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f4",
                 "page": 1
             },
             {
@@ -1289,8 +1222,7 @@
                     145.9723796,
                     483.2211171999999
                 ],
-                "fontName": "g_d1_f7",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f3",
                 "page": 1
             }
         ],
@@ -1298,27 +1230,27 @@
             "fontFamily": "serif",
             "ascent": 0.75,
             "descent": -0.25,
-            "fontName": "g_d1_f5"
+            "fontName": "g_d0_f1"
         },
         {
             "fontFamily": "serif",
             "ascent": 0.989,
             "descent": -0.36,
-            "fontName": "g_d1_f6"
-        },
-        {
-            "fontFamily": "serif",
-            "ascent": 0.989,
-            "descent": -0.36,
-            "vertical": false,
-            "fontName": "g_d1_f7"
+            "fontName": "g_d0_f2"
         },
         {
             "fontFamily": "serif",
             "ascent": 0.989,
             "descent": -0.36,
             "vertical": false,
-            "fontName": "g_d1_f8"
+            "fontName": "g_d0_f3"
+        },
+        {
+            "fontFamily": "serif",
+            "ascent": 0.989,
+            "descent": -0.36,
+            "vertical": false,
+            "fontName": "g_d0_f4"
         }
     ],
     [
@@ -1340,7 +1272,7 @@
                     109.1339,
                     702.496
                 ],
-                "fontName": "g_d1_f5",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1355,8 +1287,7 @@
                     109.1339,
                     688.096
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1371,8 +1302,7 @@
                     465.0419,
                     688.096
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1387,8 +1317,7 @@
                     109.13389999999998,
                     673.696
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1403,8 +1332,7 @@
                     109.13389999999998,
                     659.296
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1419,8 +1347,7 @@
                     109.13389999999998,
                     644.8960000000001
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1435,8 +1362,7 @@
                     109.13389999999998,
                     630.4960000000001
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1451,8 +1377,7 @@
                     109.13389999999998,
                     616.0960000000001
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1467,8 +1392,7 @@
                     109.13389999999998,
                     601.6960000000001
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1483,8 +1407,7 @@
                     109.13389999999998,
                     587.2960000000002
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1499,8 +1422,7 @@
                     109.13389999999998,
                     572.8960000000002
                 ],
-                "fontName": "g_d1_f5",
-                "colour": "",
+                "fontName": "g_d0_f1",
                 "page": 1
             },
             {
@@ -1515,8 +1437,8 @@
                     268.2883,
                     770.657
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "",
+                "fontName": "g_d0_f2",
+                "colour": "#2b2e34",
                 "page": 1
             },
             {
@@ -1531,8 +1453,7 @@
                     92.126,
                     434.8982
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f2",
                 "page": 1
             },
             {
@@ -1547,8 +1468,7 @@
                     92.126,
                     420.4982
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f2",
                 "page": 1
             },
             {
@@ -1563,8 +1483,7 @@
                     92.126,
                     406.0982
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f2",
                 "page": 1
             },
             {
@@ -1579,8 +1498,7 @@
                     67.8798,
                     466.5171
                 ],
-                "fontName": "g_d1_f6",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f2",
                 "page": 1
             },
             {
@@ -1595,8 +1513,7 @@
                     73.9907,
                     454.4734
                 ],
-                "fontName": "g_d1_f7",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f3",
                 "page": 1
             },
             {
@@ -1611,8 +1528,7 @@
                     143.4426008,
                     482.21078559999995
                 ],
-                "fontName": "g_d1_f8",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f4",
                 "page": 1
             },
             {
@@ -1627,8 +1543,7 @@
                     145.9723796,
                     483.2211171999999
                 ],
-                "fontName": "g_d1_f7",
-                "colour": "#2b2e34",
+                "fontName": "g_d0_f3",
                 "page": 1
             }
         ],
@@ -1636,27 +1551,27 @@
             "fontFamily": "serif",
             "ascent": 0.75,
             "descent": -0.25,
-            "fontName": "g_d1_f5"
+            "fontName": "g_d0_f1"
         },
         {
             "fontFamily": "serif",
             "ascent": 0.989,
             "descent": -0.36,
-            "fontName": "g_d1_f6"
-        },
-        {
-            "fontFamily": "serif",
-            "ascent": 0.989,
-            "descent": -0.36,
-            "vertical": false,
-            "fontName": "g_d1_f7"
+            "fontName": "g_d0_f2"
         },
         {
             "fontFamily": "serif",
             "ascent": 0.989,
             "descent": -0.36,
             "vertical": false,
-            "fontName": "g_d1_f8"
+            "fontName": "g_d0_f3"
+        },
+        {
+            "fontFamily": "serif",
+            "ascent": 0.989,
+            "descent": -0.36,
+            "vertical": false,
+            "fontName": "g_d0_f4"
         }
     ]
 ]

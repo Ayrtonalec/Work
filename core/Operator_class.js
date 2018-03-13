@@ -1,5 +1,6 @@
 const util = require('util');
 var fs = require('fs');
+var async = require('async');
 class Operator {
 
 
@@ -46,8 +47,6 @@ class Operator {
     getText(page, paginfo, content, numPages, data, Callback) {
 
 
-
-
         var length = 0;
 
         var counter = 0;
@@ -64,7 +63,6 @@ class Operator {
         page.getOperatorList().then(function(ops) { // Loop through 4 times, for each page once
 
             var Temp_array = new Array();
-
             length = ops.fnArray;
             var a = 0; // Not used
 
@@ -93,140 +91,176 @@ class Operator {
                     }
                 }
 
-                if (u == 59 || u == 44 || u == 9 || u == 32) { // Loop through 51 -49 -39 -39
+                // if (u == 59 || u == 44 || u == 9 || u == 32) { // Loop through 51 -49 -39 -39
+
+                // console.log(u);
+                switch (u) {
+                    case 59:
+                        // console.log('RGB Init: ')
 
 
-                    switch (u) {
-                        case 59:
-                            // console.log('RGB Init: ')
 
+                        Temp_array.hex = "#" + ((1 << 24) + (arg[0] << 16) + (arg[1] << 8) + arg[2]).toString(16).slice(1);
 
+                        // code
+                        break;
+                    case 44:
 
-                            Temp_array.push({ hex: "#" + ((1 << 24) + (arg[0] << 16) + (arg[1] << 8) + arg[2]).toString(16).slice(1) });
+                        var parts = '';
+                        for (var p = 0; p < arg[0].length; p++) {
 
-                            // code
-                            break;
-                        case 44:
-
-                            var parts = '';
-                            for (var p = 0; p < arg[0].length; p++) {
-
-                                var part = arg[0][p]; // Part
-                                if (isNaN(part)) {
-                                    parts = parts + part.unicode
-                                }
-
+                            var part = arg[0][p]; // Part
+                            if (isNaN(part)) {
+                                // console.log(part);
+                                parts = parts + part.unicode
                             }
-                            //  console.log(parts);
-                            // return;
-                            Temp_array.push(parts);
-                            // code, breakdown letters to words 
-                            break;
-                        case 32:
-                            // code
-                            // console.log('Closure Init: ')
-                            // console.log(Temp_array);
-                            data.push(Temp_array);
-                            Temp_array = new Array();
-                            break;
+
+                        }
+                        //  console.log(parts);
+                        // return;
+                        Temp_array.parts = parts;
+                        // code, breakdown letters to words 
+                        break;
+                    case 42:
+                        // console.log(arg);
+                        Temp_array.matrix = arg;
+                        break;
+                    case 32:
+                        // code
+                        // console.log('Closure Init: ')
+                        // console.log(Temp_array);
+                        data.push(Temp_array);
+                        Temp_array = new Array();
+                        break;
 
 
-                    }
+                        // }
+                    case 33:
+                        // console.log(arg);
+                        Temp_array.spacing = arg;
+                        break;
+
+                    case 34:
+                        // console.log(arg);
+                        break;
 
                 }
+
 
 
             } //foreach
 
 
-        });
 
 
-        var old_hex = '';
-        var Content_array = Array();
 
-        var i = 0; // used for page numbering
-        var counter = 0; // used for page numbering
+            // console.log(data);// console.log('Data ^^^^^^');
+
+            var old_hex = '';
+            var Content_array = Array();
+
+            var i = 0; // used for page numbering
+            var counter = 0; // used for page numbering
 
 
-        var strings = content.items.map(function(item) {
-            // console.log(item.str);
-            // return;
+            var strings = content.items.map(function(item) {
+                // console.log(item);
+                // return;
 
-            for (var p = 0; p < data.length; p++) {
-
-                if (typeof data[p][0].hex === 'undefined' || typeof data[p][0].hex !== 'undefined') {
+                for (var p = 0; p < data.length; p++) {
+                    // console.log('data[loop]:   ');
                     // console.log(data[p]);
-                    // for(var q = 0; q < data.length; q++){
-                    for (var d = 0; typeof data[p][d].hex !== 'undefined'; d++) {
 
-                        // console.log(d);
-
-                        counter = d;
-                    }
-
-                    console.log(item.str + '       ||||' + counter + '||||       ' + data[p][d]);
-                    // }
-
-
-                    if (data[p][d] == item.str) {
-
-                        console.log('Match!');
-                        for (var g = 0; g < 99; g++) {
-                            if (typeof data[p - g - 1] !== 'undefined') {
-                                if (typeof data[p - g - 1][0].hex !== 'undefined') {
+                    if (data[p].parts == item.str && String(data[p].matrix) == String(item.transform)) {
+                        // console.log(data[p]);
+                        if (typeof data[p].hex !== 'undefined') {
+                            item.colour = data[p].hex;
+                            // for (var g = 0; g < 99; g++) {
+                            //     if (typeof data[p - g - 1] !== 'undefined') {
+                            //         if (typeof data[p - g - 1][0].hex !== 'undefined') {
 
 
 
-                                    item.colour = data[p - g - 1][0].hex;
-                                    old_hex = data[p - g - 1][0].hex;
-                                    //   console.log('Other data --->' + data[p-g-1][0].hex);
-                                    //   console.log(data[p-g-0][0]);
+                            //             item.colour = data[p - g - 1][0].hex;
+                            //             old_hex = data[p - g - 1][0].hex;
+                            //             //   console.log('Other data --->' + data[p-g-1][0].hex);
+                            //             //   console.log(data[p-g-0][0]);
 
-                                    g = 99;
-                                    break;
+                            //             g = 99;
+                            //             break;
 
-                                }
-                            }
+                            //         }
+                            //     }
 
 
+                            // }
+                        }
+                        if (typeof data[p].spacing !== 'undefined') {
+                            item.spacing = String(data[p].spacing * 1000);
                         }
 
+                        // console.log('=======================================-------------------------------------------------');
+                        // console.log(item);
                         break;
-                    } // if item == Match!
+                    }
+                    else {
+                        // console.log('=======================================-------------------------------------------------');
+                        // console.log('fail');
+                        // console.log('data[p].parts == item.str : ' + (data[p].parts == item.str));
+                        // console.log();
+                        // console.log('data[p].matrix == item.transform : ' + (String(data[p].matrix) == String(item.transform)));
+                        // console.log('data[p].matrix: ' + data[p].matrix);
+                        // console.log('item.transform: ' + item.transform);
+
+                        // console.log('=======================================-------------------------------------------------');
+                    }
+
+                    // if (typeof data[p].hex === 'undefined' || typeof data[p].hex !== 'undefined') {
+
+                    //     if (data[p] == item.str) {
+
+                    //         console.log('Match!');
+
+
+                    //         break;
+                    //     } // if item == Match!
 
 
 
-                } // Useless
+                    // } // Useless
 
-                if (p == data.length - 1) {
-                    item.colour = old_hex;
-                    console.log('Failed to match :(');
+                    // if (p == data.length - 1) {
+                    //     item.colour = old_hex;
+                    //     console.log('Failed to match :(');
+                    // }
+                } /// for loop
+
+
+
+                delete item.dir;
+                // console.log('Item:;:          -  ' + counter++);
+                // console.log(item);
+                item.page = paginfo.page_data.page_num;
+                // console.log('Pagedata: #' + i);
+                // console.log(paginfo);
+                if (i < paginfo.page_data.page_num) {
+
+                    Content_array.push(paginfo.page_data); //PageData
+
                 }
-            } /// for loop
+                i = paginfo.page_data.page_num; //used for page numbering
 
-
-
-            delete item.dir;
-            //   console.log('Item:;:          -  ' + counter++);
-            // console.log(item);
-            item.page = paginfo.page_data.page_num;
-            // console.log('Pagedata: #' + i);
-            // console.log(paginfo);
-            if (i < paginfo.page_data.page_num) {
-
-                Content_array.push(paginfo.page_data); //PageData
-
-            }
-            i = paginfo.page_data.page_num; //used for page numbering
-
-            Content_array.push(item);
-            // console.log(item);
-            return item.str;
+                Content_array.push(item);
+                // console.log(item);
+                return item.str;
+            });
+            // console.log('CONTENT ARRRA ');
+            // console.log(Content_array);
+            return Callback(Content_array);
         });
-        return Callback(Content_array);
-    }
 
+
+    }
     getImage(page, pdfjsLib, paginfo, callback) {
 
 
@@ -323,7 +357,7 @@ class Operator {
 
         var _flagCheck = setInterval(function() { //Checking whether load is set to true
             if (counter >= length.length) {
-                console.log('counter:  ' + counter + '   Length:   ' + length.length)
+                // console.log('counter:  ' + counter + '   Length:   ' + length.length)
                 clearInterval(_flagCheck);
                 // console.log(result_t);
                 return callback(result_t);
